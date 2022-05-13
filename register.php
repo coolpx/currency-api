@@ -1,7 +1,7 @@
 <?php
 include "dotenv.php";
 
-$id = 0;
+$success = false;
 $msg = "An error occured and an API key was not generated.";
 
 $env = load_dotenv();
@@ -14,6 +14,7 @@ $sql = "INSERT INTO users (apiKey) values (\"" . $key . "\")";
 
 if (mysqli_query($conn, $sql)) {
     $msg = "<code>" . $key . "</code> is your API key. DO NOT LOSE IT! Only share it with people you absolutely trust. Anybody who has this key has access to all of your currency and can give it to anyone.";
+    $success = true;
 }
 ?>
 
