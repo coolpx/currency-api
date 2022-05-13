@@ -1,6 +1,6 @@
 <?php
 function load_dotenv() {
-    $file = file_get_contents(".env");
+    $file = file_get_contents($_SERVER["DOCUMENT_ROOT"] . "/.env");
     $pairs = explode("\n", $file);
     $result = array();
     foreach($pairs as $pair) {

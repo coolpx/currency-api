@@ -1,9 +1,9 @@
 <?php
 include "dotenv.php";
 
-$success = false;
 $tried = false;
-$id = 0;
+$success = false;
+$currency = -1;
 
 $env = load_dotenv();
 
@@ -11,13 +11,13 @@ $conn = mysqli_connect($env["HOST"], $env["USER"], $env["PASSWORD"], $env["DATAB
 
 if (isset($_GET["key"])) {
     $tried = true;
-
-    $sql = 'SELECT id FROM users WHERE apiKey = "' . $_GET["key"] . '"';
+    
+    $sql = 'SELECT currency FROM users WHERE apiKey = "' . $_GET["key"] . '"';
     $result = mysqli_query($conn, $sql);
 
     if ($result) {
-        $id = mysqli_fetch_assoc($result)["id"];
-        if ($id) {
+        $currency = mysqli_fetch_assoc($result)["currency"];
+        if ($currency != NULL) {
             $success = true;
         }
     }
@@ -29,19 +29,24 @@ if (isset($_GET["key"])) {
 <html>
     <head>
         <meta charset="UTF-8">
-        <meta name="description" content="Get the ID from a CoolPixels Currency API key">
+        <meta name="description" content="">
         
-        <title>Check ID</title>
+        <title></title>
         <link rel="stylesheet" href="/.css">
     </head>
     <body>
-        <h1>ID Check</h1>
+        <h1>Free Money</h1>
         <?php
         if ($tried) {
             if ($success) {
-                echo "Got ID: <code>" . $id . "</code>";
+                echo "Got currency: <code>" . $currency + 1 . "</code>";
+
+                $sql = "UPDATE users SET currency = " . $currency + 1 . " WHERE apiKey = \"" . $_GET["key"] . "\"";
+                mysqli_query($conn, $sql);
+
+                echo "<br>You have been given one currency";
             } else {
-                echo "Failed to get ID";
+                echo "Failed to get currency";
             }
         } else {
             echo "<form>";
