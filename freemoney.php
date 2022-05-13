@@ -39,7 +39,7 @@ if (isset($_GET["key"])) {
         <?php
         if ($tried) {
             if ($success) {
-                echo "Got currency: <code>" . $currency + 1 . "</code>";
+                echo "Currency: <code>" . $currency + 1 . "</code>";
 
                 $sql = "UPDATE users SET currency = " . $currency + 1 . " WHERE apiKey = \"" . $_GET["key"] . "\"";
                 mysqli_query($conn, $sql);
