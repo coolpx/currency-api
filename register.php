@@ -13,7 +13,7 @@ $key = exec("uuidgen -r");
 $sql = "INSERT INTO users (apiKey) values (\"" . $key . "\")";
 
 if (mysqli_query($conn, $sql)) {
-    $msg = $key . " is your API key. DO NOT LOSE IT! Only share it with people you absolutely trust. Anybody who has this key has access to all of your currency and can give it to anyone.";
+    $msg = "<code>" . $key . "</code> is your API key. DO NOT LOSE IT! Only share it with people you absolutely trust. Anybody who has this key has access to all of your currency and can give it to anyone.";
 }
 ?>
 
