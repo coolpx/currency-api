@@ -31,5 +31,6 @@ if (mysqli_query($conn, $sql)) {
     <body>
         <h1>Register</h1>
         <p><?php echo $msg ?></p>
+        <?php if ($success) { echo "You may want to <a href='/id.php'>check your ID</a> so that you can recieve transfers."; } ?>
     </body>
 </html>

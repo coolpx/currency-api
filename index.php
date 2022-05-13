@@ -11,10 +11,16 @@
     <body>
         <h1>CoolPixels Currency</h1>
         <p>
-            This is a little project I made to see how a fake currency would develop. It's really only an API to transfer a currency between accounts. But I really wanted to see what happens when you make a currency API that anybody can use. Get started by <a href="/register.php">registering</a> and <a href="/documentation.php">reading the documentation</a>.
+            This is a little project I made to see how a fake currency would develop. It's really only an API to transfer a currency between accounts. But I really wanted to see what happens when you make a currency API that anybody can use. Get started by <a href="/register.php">registering</a>.
         </p>
         <p>
             This is not a cryptocurrency. I hate cryptocurrencies.
+        </p>
+        <br>
+        <p>
+            All pages:<br><br>
+            <a href="/register.php">Register</a><br>
+            <a href="/id.php">ID check</a><br>
         </p>
     </body>
 </html>
